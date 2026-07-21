@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMG · Personal Profile</title>
+  <!-- Font & Ikon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf9f6;
+      font-family: 'Inter', sans-serif;
+      color: #1e1e2a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      padding: 20px 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      animation: fadeDown 0.8s ease;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #2d2b4b, #6b5f9e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2d2b4b;
+      transition: 0.2s;
+      font-size: 1rem;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #6b5f9e;
+      color: #1a1733;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 0 40px;
+      gap: 30px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero-content {
+      flex: 1 1 45%;
+    }
+
+    .hero-content .badge {
+      background: #eae7f3;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3b3563;
+      display: inline-block;
+      letter-spacing: 0.3px;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #1e1e2a;
+    }
+
+    .hero-content h1 span {
+      background: linear-gradient(145deg, #6b5f9e, #b8a9d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3d3d4e;
+      max-width: 480px;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      background: #1e1e2a;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #1e1e2a;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #3b3563;
+      transform: scale(1.02);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #1e1e2a;
+      border: 1.5px solid #cbc6db;
+    }
+    .btn-outline:hover {
+      background: #f0edf7;
+      border-color: #6b5f9e;
+    }
+
+    .hero-image {
+      flex: 1 1 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.08);
+      transition: transform 0.4s ease;
+      animation: float 6s ease-in-out infinite;
+      border: 4px solid white;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.02) rotate(1deg);
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      letter-spacing: -0.3px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #6b5f9e, #b8a9d4);
+      border-radius: 4px;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 60px 0 40px;
+    }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+    .about-text {
+      flex: 2;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      color: #2f2f40;
+      max-width: 600px;
+    }
+    .about-stats {
+      flex: 1;
+      display: flex;
+      gap: 30px;
+      justify-content: flex-end;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-item .number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #2d2b4b;
+    }
+    .stat-item .label {
+      color: #5d5a75;
+      font-weight: 400;
+    }
+
+    /* GALLERY */
+    .gallery {
+      padding: 40px 0 60px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px;
+    }
+    .gallery-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      animation: fadeUp 0.8s ease backwards;
+    }
+    .gallery-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .gallery-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .gallery-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .gallery-card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+    .gallery-card:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+    .gallery-card:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(107, 95, 158, 0.08);
+      border-color: #d9d2e9;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: 0.4s;
+      display: block;
+    }
+    .gallery-card:hover img {
+      transform: scale(1.02);
+    }
+    .gallery-card .caption {
+      padding: 16px 16px 18px;
+      background: white;
+    }
+    .gallery-card .caption h4 {
+      font-weight: 600;
+      color: #1e1e2a;
+    }
+    .gallery-card .caption p {
+      color: #65607e;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 40px 0 30px;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 60px;
+      padding: 30px 0 20px;
+      border-top: 1px solid #e9e6f0;
+      text-align: center;
+      color: #5d5a75;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .social-icons a {
+      color: #3b3563;
+      margin: 0 12px;
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      color: #6b5f9e;
+      transform: scale(1.1);
+    }
+
+    /* ANIMASI */
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-14px) rotate(1deg);
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content p {
+        margin: 0 auto 30px;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .about-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-stats {
+        justify-content: center;
+      }
+      .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    /* SEARCH MODAL */
+    #searchModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      animation: fadeUp 0.3s ease;
+    }
+    #searchModal .modal-box {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    }
+    #searchModal .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #2d2b4b;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #searchModal .close-btn:hover {
+      color: #6b5f9e;
+    }
+    #searchModal input {
+      flex: 1;
+      padding: 14px 20px;
+      border: 2px solid #e9e6f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: 0.3s;
+    }
+    #searchModal input:focus {
+      border-color: #6b5f9e;
+    }
+    #searchModal .search-btn {
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #2d2b4b, #6b5f9e);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    #searchModal .search-btn:hover {
+      transform: scale(1.05);
+    }
+    .result-item {
+      display: block;
+      padding: 10px 16px;
+      margin-bottom: 8px;
+      background: #f5f3fa;
+      border-radius: 10px;
+      color: #2d2b4b;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    .result-item:hover {
+      background: #eae7f3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#beranda" style="text-decoration: none; display: flex; align-items: center; gap: 10px; transition: 0.3s;">
+          <span class="logo">
+            <i class="fas fa-crown" style="margin-right: 8px; background: linear-gradient(135deg, #f9d423, #ff4e50); -webkit-background-clip: text; background-clip: text; color: transparent;"></i>AMG
+          </span>
+        </a>
+        <div class="nav-links">
+          <a href="#beranda">Beranda</a>
+          <a href="#about">Tentang</a>
+          <a href="#gallery">Galeri</a>
+          <a href="#contact">Kontak</a>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <a href="#" id="searchBtn" style="color: #2d2b4b; font-size: 1.2rem; text-decoration: none; transition: 0.3s; padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='#eae7f3'" onmouseout="this.style.background='transparent'">
+            <i class="fas fa-search"></i>
+          </a>
+          <i class="fas fa-bars" style="color:#2d2b4b; font-size: 1.2rem; display: none;"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="container hero" id="beranda">
+    <div class="hero-content">
+      <div class="badge"><i class="fas fa-star" style="margin-right: 6px;"></i> Personal Company</div>
+      <h1>Kreatif & <br><span>Berkarakter</span></h1>
+      <p>Halo, saya Aysel Muhammad Ghaisan — sebuah perjalanan personal yang berkembang menjadi Ahli Teknik Komputer. Temukan cerita, karya, dan visi.</p>
+      <div class="btn-group">
+        <a href="#gallery" class="btn btn-primary">Lihat Portfolio</a>
+        <a href="#contact" class="btn btn-outline">Hubungi</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="C:\Users\DDecade\Pictures\Saved Pictures\pas-foto-png.jpeg" alt="Foto profil Aysel" />
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Tentang Saya</h2>
+          <p style="margin-top: 20px; font-size: 1.1rem; color: #2f2f40;">
+            Saya adalah seorang <strong style="color: #6b5f9e;">Teknik Komputer dan Jaringan</strong> dengan mempunyai keinginan menciptakan pengalaman perakitan komputer dan infrastruktur jaringan yang handal serta bermakna.
+          </p>
+          <p style="margin-top: 18px; color: #4a475e; line-height: 1.7;">
+            Personal Profile ini adalah cerminan dari perjalanan, proyek, dan filosofi yang saya bangun. Setiap gambar, kata, dan elemen dirancang dengan pendekatan personal — karena bagi saya, <span style="color: #6b5f9e; font-weight: 600;">teknologi adalah cerita yang hidup</span>.
+          </p>
+          <div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px;">
+            <span style="background: #eae7f3; padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; color: #3b3563;">
+              <i class="fas fa-network-wired" style="margin-right: 6px;"></i> Jaringan
+            </span>
+            <span style="background: #eae7f3; padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; color: #3b3563;">
+              <i class="fas fa-microchip" style="margin-right: 6px;"></i> Perakitan PC
+            </span>
+            <span style="background: #eae7f3; padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; color: #3b3563;">
+              <i class="fas fa-server" style="margin-right: 6px;"></i> Server
+            </span>
+            <span style="background: #eae7f3; padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; font-weight: 500; color: #3b3563;">
+              <i class="fas fa-shield-alt" style="margin-right: 6px;"></i> Keamanan Jaringan
+            </span>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="number">2+</div>
+            <div class="label">Tahun Pengalaman</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">5+</div>
+            <div class="label">Proyek Selesai</div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <h2 class="section-title">Hobi Yang Saya Suka</h2>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="C:\Users\DDecade\Pictures\Foto Random\utrans-png.jpg" alt="Foto 1" />
+          <div class="caption"><h4>U Trans</h4><p>Bus yang paling saya suka, karena mempunyai desain unik dan menarik.</p></div>
+        </div>
+        <div class="gallery-card">
+          <img src="C:\Users\DDecade\Pictures\Foto Random\27trans-png.png" alt="Foto 2" />
+          <div class="caption"><h4>27 Trans</h4><p>Bus dengan tampilan eksterior yang minimalis tetapi interior yang mewah dan simpel.</p></div>
+        </div>
+        <div class="gallery-card">
+          <img src="C:\Users\DDecade\Pictures\Foto Random\j99-png.jpg" alt="Foto 3" />
+          <div class="caption"><h4>Juragan 99</h4><p>Bus ini sama seperti 27 Trans, tetapi interiornya jauh lebih mewah.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 0 30px; text-align: center;">
+        <h2 class="section-title" style="margin-bottom: 10px; text-align: center;">Hubungi</h2>
+        <p style="color: #4a475e; max-width: 400px; margin: 12px auto 24px; text-align: center;">
+          Tertarik berkolaborasi atau sekadar ngobrol? Mari terhubung.
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; margin: 8px 0;">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/ddecade_mg/" target="_blank" class="btn" style="padding: 12px 32px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border-radius: 60px; font-weight: 600; transition: 0.3s; background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; border: none; box-shadow: 0 6px 16px rgba(225, 48, 108, 0.3);">
+            <i class="fab fa-instagram" style="font-size: 1.2rem;"></i> Instagram
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/6287715548338?text=Halo%20saya%20tertarik%20untuk%20berkolaborasi!" target="_blank" class="btn" style="padding: 12px 32px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border-radius: 60px; font-weight: 600; transition: 0.3s; background: #25D366; color: white; border: none; box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);">
+            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="container">
+    <span>© 2026 AMG · Personal Profile</span>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-dribbble"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <!-- ========== SEARCH MODAL ========== -->
+  <div id="searchModal">
+    <div class="modal-box">
+      <button class="close-btn" id="closeSearch"><i class="fas fa-times"></i></button>
+      <h3 style="font-family: 'Inter', sans-serif; color: #1e1e2a; margin-bottom: 20px; font-weight: 600;">
+        <i class="fas fa-search" style="color: #6b5f9e; margin-right: 10px;"></i>Cari di sini
+      </h3>
+      <form id="searchForm" style="display: flex; gap: 10px;">
+        <input type="text" id="searchInput" placeholder="Ketik kata kunci..." />
+        <button type="submit" class="search-btn">Cari</button>
+      </form>
+      <div id="searchResults" style="margin-top: 20px; display: none;"></div>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPT ========== -->
+  <script>
+    // Elemen DOM
+    const searchBtn = document.getElementById('searchBtn');
+    const searchModal = document.getElementById('searchModal');
+    const closeSearch = document.getElementById('closeSearch');
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    // Data halaman (untuk pencarian)
+    const pageData = [
+      { title: 'Beranda', link: '#beranda' },
+      { title: 'Tentang Saya', link: '#about' },
+      { title: 'Galeri', link: '#gallery' },
+      { title: 'Kontak', link: '#contact' },
+      { title: 'Jaringan', link: '#about' },
+      { title: 'Perakitan PC', link: '#about' },
+      { title: 'Server', link: '#about' },
+      { title: 'Keamanan Jaringan', link: '#about' },
+      { title: 'Portfolio', link: '#gallery' },
+      { title: 'Workshop', link: '#gallery' }
+    ];
+
+    // Buka modal
+    searchBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      searchModal.style.display = 'flex';
+      searchInput.focus();
+    });
+
+    // Tutup modal
+    closeSearch.addEventListener('click', function() {
+      searchModal.style.display = 'none';
+      searchResults.style.display = 'none';
+    });
+
+    // Tutup klik di luar modal
+    searchModal.addEventListener('click', function(e) {
+      if (e.target === searchModal) {
+        searchModal.style.display = 'none';
+        searchResults.style.display = 'none';
+      }
+    });
+
+    // Tutup dengan ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && searchModal.style.display === 'flex') {
+        searchModal.style.display = 'none';
+        searchResults.style.display = 'none';
+      }
+    });
+
+    // Form pencarian
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const keyword = searchInput.value.trim();
+
+      if (keyword === '') {
+        searchResults.innerHTML = '<p style="color: #dc2743; font-size: 0.95rem;"><i class="fas fa-exclamation-circle"></i> Masukkan kata kunci terlebih dahulu!</p>';
+        searchResults.style.display = 'block';
+        return;
+      }
+
+      const filtered = pageData.filter(item =>
+        item.title.toLowerCase().includes(keyword.toLowerCase())
+      );
+
+      if (filtered.length > 0) {
+        let html = '<div style="margin-top: 10px;">';
+        filtered.forEach(item => {
+          html += `<a href="${item.link}" class="result-item" onclick="searchModal.style.display='none'">
+                      <i class="fas fa-arrow-right" style="color: #6b5f9e; margin-right: 12px;"></i>${item.title}
+                    </a>`;
+        });
+        html += '</div>';
+        searchResults.innerHTML = html;
+      } else {
+        searchResults.innerHTML = `<p style="color: #4a475e; font-size: 0.95rem;"><i class="fas fa-search" style="color: #6b5f9e;"></i> Tidak ditemukan hasil untuk "<strong>${keyword}</strong>"</p>`;
+      }
+      searchResults.style.display = 'block';
+    });
+
+    // Sembunyikan hasil saat input kosong
+    searchInput.addEventListener('input', function() {
+      if (this.value.trim() === '') {
+        searchResults.style.display = 'none';
+      }
+    });
+
+    // Animasi gallery card saat scroll
+    const cards = document.querySelectorAll('.gallery-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
